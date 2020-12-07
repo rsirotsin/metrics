@@ -18,6 +18,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Component
 public class MetricsJob {
@@ -38,7 +39,7 @@ public class MetricsJob {
             final int memoryPercentage = getMemoryUsagePercentage();
             final int diskUsagePercentage = getDiskUsagePercentage();
             log.info("system cpu load {} %, memory usage {} %, disk usage {} %", systemCpuLoadPercentage, memoryPercentage, diskUsagePercentage);
-            metricsService.saveMetrics(new MetricsDto(systemCpuLoadPercentage, memoryPercentage, diskUsagePercentage, LocalDateTime.now()));
+            metricsService.saveMetrics(new MetricsDto(systemCpuLoadPercentage, memoryPercentage, diskUsagePercentage, LocalDateTime.now(ZoneId.of("UTC"))));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }

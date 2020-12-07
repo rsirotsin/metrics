@@ -16,12 +16,14 @@ import org.junit.jupiter.api.io.TempDir;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @SpringBootTest
-@MockBean(MetricsJob.class) // to disable job
+@ActiveProfiles("test")
 public class MetricsServiceTest {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH");
 
@@ -57,7 +59,7 @@ public class MetricsServiceTest {
 
     @Test
     public void shouldSendEmailAfterThresholdOvercoming() throws IOException, MessagingException {
-        final MetricsDto metricsDto = new MetricsDto(100, 100, 100, LocalDateTime.now());
+        final MetricsDto metricsDto = new MetricsDto(100, 100, 100, LocalDateTime.now(ZoneId.of("UTC")));
         metricsService.saveMetrics(metricsDto);
         greenMail.waitForIncomingEmail(5000, 1);
 

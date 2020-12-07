@@ -12,6 +12,7 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import javax.mail.internet.MimeMessage;
 
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@MockBean(MetricsJob.class) // to disable job
+@ActiveProfiles("test")
 public class MailServiceTest {
     @RegisterExtension
     static GreenMailExtension greenMail = new GreenMailExtension(ServerSetup.SMTP)
