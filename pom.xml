@@ -10,12 +10,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>ru.leverx</groupId>
+    <groupId>com.metrics</groupId>
     <artifactId>metrics</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
+        <green.mail.version>1.6.1</green.mail.version>
     </properties>
 
     <dependencies>
@@ -33,21 +34,21 @@
         <dependency>
             <groupId>com.icegreen</groupId>
             <artifactId>greenmail</artifactId>
-            <version>1.6.1</version>
+            <version>${green.mail.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.icegreen</groupId>
             <artifactId>greenmail-spring</artifactId>
-            <version>1.6.1</version>
+            <version>${green.mail.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.icegreen</groupId>
             <artifactId>greenmail-junit5</artifactId>
-            <version>1.6.1</version>
+            <version>${green.mail.version}</version>
         </dependency>
 
         <dependency>
