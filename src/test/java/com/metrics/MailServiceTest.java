@@ -5,13 +5,11 @@ import com.icegreen.greenmail.junit5.GreenMailExtension;
 import com.icegreen.greenmail.util.GreenMailUtil;
 import com.icegreen.greenmail.util.ServerSetup;
 import com.metrics.dto.MailDto;
-import com.metrics.job.MetricsJob;
 import com.metrics.service.MailService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.mail.internet.MimeMessage;
@@ -30,7 +28,7 @@ public class MailServiceTest {
     private MailService mailService;
 
     @Test
-    public void shouldSendEmail(){
+    public void shouldSendEmail() {
         // Given
         String to = "to@mail.ru";
         String from = "from@mail.ru";

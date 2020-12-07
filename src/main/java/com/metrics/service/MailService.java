@@ -14,6 +14,7 @@ public class MailService {
 
     /**
      * all exception handled by default spring async thread uncaught exception handler
+     *
      * @see org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler
      */
     @Async

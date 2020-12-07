@@ -1,13 +1,13 @@
 package com.metrics.job;
 
+import com.metrics.dto.MetricsDto;
+import com.metrics.service.MetricsService;
 import com.sun.management.OperatingSystemMXBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import com.metrics.service.MetricsService;
-import com.metrics.dto.MetricsDto;
 
 import java.io.IOException;
 import java.lang.management.ManagementFactory;

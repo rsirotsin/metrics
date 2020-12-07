@@ -1,5 +1,8 @@
 package com.metrics;
 
+import com.metrics.controller.MetricsController;
+import com.metrics.dto.MetricsDto;
+import com.metrics.service.MetricsService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -9,10 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import com.metrics.controller.MetricsController;
-import com.metrics.dto.MetricsDto;
-import com.metrics.job.MetricsJob;
-import com.metrics.service.MetricsService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

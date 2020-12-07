@@ -6,7 +6,6 @@ import com.icegreen.greenmail.util.GreenMailUtil;
 import com.icegreen.greenmail.util.ServerSetup;
 import com.metrics.dto.MetricsDto;
 import com.metrics.dto.MetricsSearchDto;
-import com.metrics.job.MetricsJob;
 import com.metrics.properties.MetricsProperties;
 import com.metrics.service.MetricsService;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +14,6 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.io.TempDir;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.mail.MessagingException;
