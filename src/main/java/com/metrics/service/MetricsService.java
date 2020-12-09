@@ -7,7 +7,6 @@ import com.metrics.properties.MetricsProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -27,16 +26,15 @@ public class MetricsService {
     private static final Logger log = LoggerFactory.getLogger(MetricsService.class);
 
     private static final String FILE_ROOT_PATH = System.getProperty("java.io.tmpdir");
-    private static final DateTimeFormatter DATE_TO_SAVE_METRICS_PATH_FORMATTER = DateTimeFormatter.ofPattern("yyyy\\MM\\dd\\HH\\mmss", Locale.ENGLISH);
-    private static final DateTimeFormatter DATE_TO_READ_DIRECTORY_PATH_FORMATTER = DateTimeFormatter.ofPattern("yyyy\\MM\\dd\\HH", Locale.ENGLISH);
+    private static final DateTimeFormatter DATE_TO_SAVE_METRICS_PATH_FORMATTER =
+            DateTimeFormatter.ofPattern("yyyy" + File.separator + "MM" + File.separator + "dd" + File.separator + "HH" + File.separator + "mmss", Locale.ENGLISH);
+    private static final DateTimeFormatter DATE_TO_READ_DIRECTORY_PATH_FORMATTER =
+            DateTimeFormatter.ofPattern("yyyy" + File.separator + "MM" + File.separator + "dd" + File.separator + "HH", Locale.ENGLISH);
     private static final String FILE_NAME_TEMPLATE = "{0}{1}";
     public static final String METRICS_FAILURE_SUBJECT = "Metrics failure";
 
     @Autowired
     private MetricsProperties metricsProperties;
-
-    @Autowired
-    private ResourcePatternResolver resourceLoader;
 
     @Autowired
     private MailService mailService;

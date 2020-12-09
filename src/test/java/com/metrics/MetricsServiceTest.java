@@ -18,6 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -52,7 +53,7 @@ public class MetricsServiceTest {
 
     @BeforeAll
     static void setTmpDir() {
-        System.setProperty("java.io.tmpdir", sharedTempDir.toString() + "\\");
+        System.setProperty("java.io.tmpdir", sharedTempDir.toString() + File.separator);
     }
 
     @Test
